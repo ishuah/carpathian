@@ -1,0 +1,12 @@
+{% extends "carpathian/base.html" %}
+{% block payload %}
+<div class='container'>
+	<form id="login-form" method="post" action="{% url 'django.contrib.auth.views.login' %}">
+		{% csrf_token %}
+		<label>username:</label><input type='text' id="username" name='username' /><br>
+		<label>password:</label><input type='password' id="password" name='password'/><br>
+		<input type='submit' id="submit-box" value="Sign In" />
+				<input type="hidden" name="next" value="/employee/dashboard/" />
+	</form>
+</div>
+{% endblock %}

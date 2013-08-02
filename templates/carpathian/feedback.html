@@ -1,0 +1,36 @@
+{% extends "carpathian/base.html" %}
+
+{% block payload %}
+<div class="container">
+ {% if company %}
+ 	<div class="row-fluid">
+ 		<div class="span2">
+ 			<img src="{{ company.logo.url }}">
+ 			<h4>{{company.name}}</h4>
+		 	<i>{{company.tagline}}</i>
+		 	<p>{{company.description}}</p>
+ 		</div>
+	 	<div class="span8 offset2">
+	 		{% if message %}
+	 		<div class="alert alert-success">
+	 			{{message}}
+	 		</div>
+	 		{% else %}
+	 		<i>Fill out the form below!</i>
+	 		{% endif %}
+	 		
+	 		<form method="POST" action="/feedback/{{company.id}}/">
+	 			{% csrf_token %}
+	 			{{ feedback_form.as_table }}
+	 			<br>
+	 			<input type='submit' class='btn btn-primary' value="Submit!" tabindex="1"/>
+	 		</form>
+	 		
+	 	</div>
+ 	</div>
+ 	
+ {% else %}
+ 	<p>Oops! Something's not right.</p>
+ {% endif %}
+ </div>
+{% endblock %}
