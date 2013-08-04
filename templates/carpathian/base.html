@@ -7,11 +7,27 @@
     <meta name="author" content="Ishuah kariuki">
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/static/css/custom.css" rel="stylesheet">
+    <script type="text/javascript"> 
+    window.CP = {};
+    </script>
+    <script src="/static/js/jquery-2.0.2.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/underscore-min.js"></script>
+    <script src="/static/js/backbone-min.js"></script>
+    <script src="/static/js/models/Company.js"></script>
+    <script src="/static/js/controllers/CompanyView.js"></script>
+    <script src="/static/js/templates/CompanyTemplate.js"></script>
+    <script src="/static/js/controllers/CompanyDashboardView.js"></script>
+    <script src="/static/js/templates/CompanyDashboardTemplate.js"></script>
+    <script src="/static/js/models/Feedback.js"></script>
+    <script src="/static/js/controllers/FeedbackView.js"></script>
+    <script src="/static/js/templates/FeedbackTemplate.js"></script>
   </head>
 
   <body class="preview" id="top" data-spy="scroll" data-target=".subnav" data-offset="80" style="margin-top: 0px;">
     <div class="container">
-      <header class="jumbotron page-header subhead" id="overview">
+      <header class="page-header subhead" id="overview">
         <div class="row">
           <div class="span6">
             <h1><a href="/">Carpathian</a></h1>
@@ -22,6 +38,9 @@
             {% endif %}
             
           </div>
+          {% block userpanel %}
+
+          {% endblock %}
         </div>
     </header>
     {% block payload %}
@@ -32,10 +51,6 @@
       </footer>
 
     </div>
-
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/jquery.smooth-scroll.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
 
   </body>
 </html>

@@ -2,11 +2,12 @@ from companies import Company
 from django.db import models
 
 class Feedback(models.Model):
-	customer_firstname = models.CharField(max_length=30, blank=False)
-	customer_lastname = models.CharField(max_length=30, blank=False)
-	customer_phone_num = models.IntegerField(max_length=10, blank=False)
-	comments = models.TextField(blank=False)
-
+	customer_firstname = models.CharField(max_length=30)
+	customer_lastname = models.CharField(max_length=30)
+	customer_email = models.EmailField()
+	comments = models.TextField()
+	approved = models.BooleanField(default=True)
+	show_name_public = models.BooleanField(default=False)
 	#one to many relation to the company
 	company = models.ForeignKey(Company)
 

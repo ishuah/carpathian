@@ -2,22 +2,16 @@
 
 {% block payload %}
 
-	<div class="row-fluid">
-            <ul class="thumbnails">
-            {% for company in companies %}
-              <li class="span3">
-                <div class="thumbnail">
-                  <img src="{{ company.logo.url }}">
-                  <div class="caption">
-                    <h3>{{ company.name }}</h3>
-                    <i>{{ company.tagline }}</i>
-                    <p>{{ company.description }}</p>
-                    <p><a href="/feedback/{{company.id}}/" class="btn btn-primary">Give feedback</a></p>
-                  </div>
-                </div>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
+	<div id="company-list" class="row"></div>
+
+<script type="text/javascript">
+  function addCompanies(){
+          {% for company in companies %}
+           var company =  CP.Company.create("{{company.id}}", "{{ company.name }}", "{{ company.tagline }}", "{{ company.description }}", "{{ company.logo.url }}");
+          var companyView = new CP.CompanyView({ model:company });
+          {% endfor %}
+  }
+  addCompanies();
+</script>
 
 {% endblock %}

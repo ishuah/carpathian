@@ -1,0 +1,59 @@
+textarea, input :-moz-placeholder {
+  color: #999999;
+}
+
+textarea, input ::-moz-placeholder {
+  color: #999999;
+}
+
+textarea, input :-ms-input-placeholder {
+  color: #999999;
+}
+
+textarea, input ::-webkit-input-placeholder {
+  color: #999999;
+}
+
+textarea, input {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+textarea, input:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+textarea[diabled], input[disabled],
+textarea[readonly], input[readonly],
+fieldset[disabled] {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+
+textarea {
+  height: auto;
+}
+
+.thumbnail {
+  margin-bottom: 20px;
+}
+
+.table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td {
+border-top: none;
+}
