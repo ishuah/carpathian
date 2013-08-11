@@ -2,6 +2,11 @@
 
 {% block payload %}
 <div class="row">
+<div class="span2">
+      <ul class="nav nav-pills">
+          <li><a href="/employee/dashboard">Back to dashboard</a></li>
+      </ul>
+    </div>
 	<div class="span2">
  			<img src="{{ company.logo.url }}">
  			<h4>{{company.name}}</h4>
@@ -15,13 +20,7 @@
 <script type="text/javascript">
   function addFeedback(){
           {% for feedback_ in feedback %}
-          {% if feedback_.show_name_public %}
-            var feedback_ =  CP.Feedback.create("{{ feedback_.customer_firstname }} "+"{{ feedback_.customer_lastname}}" , "{{ feedback_.comments | linebreaksbr | escape }}");
-          {% else %}
-          var feedback_ =  CP.Feedback.create("Anony Mous" , "{{ feedback_.comments  | linebreaksbr | escape }}");
-          {% endif %}
-           
-          
+            var feedback_ =  CP.Feedback.create("{{ feedback_.customer_firstname }} "+"{{ feedback_.customer_lastname}}" , "{{ feedback_.comments | linebreaksbr | escape }}", "{{ feedback_.approved }}", "{{ feedback_.id }}");
           var feedbackView = new CP.FeedbackView({ model:feedback_ });
           {% endfor %}
   }

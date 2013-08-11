@@ -84,3 +84,15 @@ def feedback_company(request, companyID=None):
 	feedback = Feedback.objects.filter(company=company)
 
 	return render(request, 'carpathian/dashboard_feedback_view.html', { 'feedback':feedback, 'company': company })
+
+@login_required
+def edit_feedback(request, companyID=None, feedbackID=None):
+	feedback = get_object_or_404(Feedback, pk=feedbackID)
+	if(feedback.approved):
+		feedback.approved = False
+	else:
+		feedback.approved = True
+
+	feedback.save()
+	return redirect('/employee/dashboard/feedback/'+companyID)
+

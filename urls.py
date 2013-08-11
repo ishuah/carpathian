@@ -14,7 +14,8 @@ urlpatterns = patterns('',
      (r'^employee/dashboard/$', 'carpathian.views.employee_dashboard'),
      (r'^employee/dashboard/add/$', 'carpathian.views.add_company'),
      (r'^employee/dashboard/edit/(?P<companyID>[\d]{0,50})/$', 'carpathian.views.edit_company'),
-      (r'^employee/dashboard/feedback/(?P<companyID>[\d]{0,50})/$', 'carpathian.views.feedback_company'),
+     (r'^employee/dashboard/feedback/(?P<companyID>[\d]{0,50})/toggle/(?P<feedbackID>[\d]{0,50})/$', 'carpathian.views.edit_feedback'),
+     (r'^employee/dashboard/feedback/(?P<companyID>[\d]{0,50})/$', 'carpathian.views.feedback_company'),
      (r'^employee/$', RedirectView.as_view(url='/employee/dashboard')),
-     (r'^delete/(?P<companyID>[\d]{0,50})/$', 'carpathian.views.delete_company' )
+     (r'^employee/dashboard/delete/(?P<companyID>[\d]{0,50})/$', 'carpathian.views.delete_company' )
 )
