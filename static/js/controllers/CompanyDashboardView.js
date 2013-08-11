@@ -14,6 +14,11 @@ CP.CompanyDashboardView = Backbone.View.extend({
 	},
 
 	deleteCompany: function(){
-		this.$el.fadeOut(1000).remove();
+		var view = this;
+		if(confirm('are you sure you want to delete '+this.model.get('name'))){
+			$.get('/delete/'+this.model.get('id')).success(function(){
+				view.$el.fadeOut(1000);
+			});
+		}
 	}
 })

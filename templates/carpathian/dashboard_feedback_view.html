@@ -15,16 +15,14 @@
 <script type="text/javascript">
   function addFeedback(){
           {% for feedback_ in feedback %}
-          {% if feedback_.approved %}
           {% if feedback_.show_name_public %}
             var feedback_ =  CP.Feedback.create("{{ feedback_.customer_firstname }} "+"{{ feedback_.customer_lastname}}" , "{{ feedback_.comments | linebreaksbr | escape }}");
           {% else %}
-          var feedback_ =  CP.Feedback.create("Anony Mous" , "{{ feedback_.comments }}");
+          var feedback_ =  CP.Feedback.create("Anony Mous" , "{{ feedback_.comments  | linebreaksbr | escape }}");
           {% endif %}
            
           
           var feedbackView = new CP.FeedbackView({ model:feedback_ });
-          {% endif %}
           {% endfor %}
   }
   addFeedback();
