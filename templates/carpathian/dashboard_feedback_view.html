@@ -22,6 +22,8 @@
           {% for feedback_ in feedback %}
             var feedback_ =  CP.Feedback.create("{{ feedback_.customer_firstname }} "+"{{ feedback_.customer_lastname}}" , "{{ feedback_.comments | linebreaksbr | escape }}", "{{ feedback_.approved }}", "{{ feedback_.id }}");
           var feedbackView = new CP.FeedbackView({ model:feedback_ });
+          {% empty %}
+              $("#feedback-list").html("No feedback collected yet.");
           {% endfor %}
   }
   addFeedback();
