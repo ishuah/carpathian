@@ -31,7 +31,7 @@ def feedback(request, companyID=None):
 def feedback_view(request, companyID=None):
 	company = get_object_or_404(Company, pk=companyID)
 
-	feedback = Feedback.objects.filter(company=company)
+	feedback = Feedback.objects.filter(company=company, approved=True)
 
 	return render(request, 'carpathian/feedback_view.html', { 'feedback':feedback, 'company': company })
 
