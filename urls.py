@@ -1,13 +1,10 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import RedirectView
 
-from carpathian.resources import CompanyResource, FeedbackResource
 
 from django.contrib import admin
 admin.autodiscover()
 
-import backbone
-backbone.autodiscover()
 
 urlpatterns = patterns('',
      (r'^$', 'carpathian.views.index'),
